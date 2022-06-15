@@ -73,8 +73,8 @@ into the SWI-Prolog interactive environment, where we than can ask it questions 
 A simple example of a set of rules and facts might look like this:
 
 loves(romeo, juliet).
-loves(Y, X) :-
-    loves(X, Y).
+
+loves(Y, X) :- loves(X, Y).
 
 The interpretation of the first line is that the two place relation loves is true of two objects, romeo and juliet. The second
 and third line are how we form inference rules. This rule says that an object Y stands in the love relation to the object X,
@@ -84,18 +84,21 @@ into SWI-Prolog we can start to ask it questions about our facts. Queries are re
 with the answer Prolog gives us underneath. So, if we ask Prolog whether romeo loves juliet:
 
 ?- loves(romeo, juliet).
+
 true .
 
 We find that indeed this is the case. Which is good, because that was the fact we started with! We can also ask if there is any
 object which romeo loves:
 
 ?- loves(romeo, X).
+
 X = juliet .
 
 and Prolog fills the variable in which the object which, according to our facts and rules, satisfies the relation. So what about
 our rule, then? If our rule is correct, then juliet should love romeo:
 
 ?- loves(juliet, romeo).
+
 true .
 
 which confirms that our rule works how we would hope it does. This is a basic overview of what interacting with Prolog code
@@ -146,15 +149,19 @@ loops, i.e., waits to read the next expression we give it. An example of an inte
 is this:
 
 \> (define a 5)
+
 a
 
-\>(+ a a)
+\> (+ a a)
+
 10
 
-\>(define (add-a x) (+ a x))
+\> (define (add-a x) (+ a x))
+
 add-a
 
-\>(add-a 4)
+\> (add-a 4)
+
 9
 
 The lines starting with \> are the expressions we entered and the lines immediately under them are the printed value Scheme
@@ -231,6 +238,7 @@ of the language that people like best. It is very easy to translate mathematical
 instance, Haskell has a kind of expression called a list comprehension that looks and behaves similarly to set comprehensions.
 
 \> [x | x <- [1..10], even x]
+
 [2,4,6,8,10]
 
 In this example REPL session, we told Haskell that we want the list of numbers x such that x comes from the list
@@ -240,9 +248,11 @@ that the set of even numbers from 1 to 10 is { x | x 𝜖 {1, 2, .., 10} & x is 
 syntax is comes when we define our own functions. Take the factorial function, which has a clear recursive definition that can be
 expressed piecewise as a base case and a recursive case. In Haskell, we could define it as
 
-\>factorial :: Int -> Int
-\>factorial 1 = 1
-\>factorial n = n * factorial (n - 1)
+\> factorial :: Int -> Int
+
+\> factorial 1 = 1
+
+\> factorial n = n * factorial (n - 1)
 
 which mirrors the piecewise definition in mathematics (modulo the large curly brace we would use to connect the name with the
 definition). The first line of this is a type signature. In Haskell, we can write out the type of our function by telling the
@@ -251,9 +261,10 @@ type (::) of a function from an integer to an integer (Int -> Int). This makes s
 integer as input and returns an integer as output. We define the function recursive, by supplying a base case, and then a
 recursive case. If the function is given the input 1, then it returns 1. If it is given a different input n, then it returns
 n times the result of applying the function to n - 1, which is the mathematical definition of the factorial function as well.
-Factorial of 10 is 10*9*8*7*6*5*4*3*2*1 = 3,628,800, and if we ask Haskell using our function we get
+Factorial of 10 is 10\*9\*8\*7\*6\*5\*4\*3\*2\*1 = 3,628,800, and if we ask Haskell using our function we get
 
 \>factorial 10
+
 3628800
 
 as expected. This is a very short example of what a REPL session in Haskell could look like.
