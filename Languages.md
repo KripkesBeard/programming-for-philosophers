@@ -37,7 +37,9 @@ software engineering, industry best practices, and so on aren't considered.
    * Maps (SWI Dicts) 
    * Characters
    * Strings 
-3) Impure Prolog & Cut
+3) Impure Prolog
+   * Cut
+   * Negeation as Failure
 
 ### Higher Prolog
 
