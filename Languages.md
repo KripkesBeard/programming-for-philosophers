@@ -125,9 +125,10 @@ software engineering, industry best practices, and so on aren't considered.
      * Cases
      * Guards
      * Lambdas
+     * let and where
 2) Hindley-Milner
    * Polymorphism
-   * Type Inference & Type Declarations
+   * Type Inference & Type Annotations
    * Higher-Order Functions
      * map
      * filter
