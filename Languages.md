@@ -100,6 +100,7 @@ software engineering, industry best practices, and so on aren't considered.
    * CPS
    * call/cc
    * amb
+   * Delimited Continuations, shift/reset
 6) Macros
    * syntax-rules 
    * syntax-case
@@ -133,6 +134,7 @@ software engineering, industry best practices, and so on aren't considered.
      * map
      * filter
      * fold
+     * unfold
      * scan
      * zip & zipWith
    * Tuples
